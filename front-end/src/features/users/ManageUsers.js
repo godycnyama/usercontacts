@@ -106,7 +106,13 @@ const ManageUsers = () => {
         dispatch(getUsersSuccess(data.users.nodes));
       },
       onError: (error) => {
-        openToast("error", error.networkError.result.errors[0].message);
+        if(error.message){
+          openToast("error", error.message);
+          return;
+        }
+        if(error.networkError){
+          openToast("error", error.networkError.result.errors[0].message);
+        }
       },
     }
   );
@@ -133,7 +139,13 @@ const ManageUsers = () => {
         dispatch(getUsersSuccess(data.users.nodes));
       },
       onError: (error) => {
-        openToast("error", error.networkError.result.errors[0].message);
+        if(error.message){
+          openToast("error", error.message);
+          return;
+        }
+        if(error.networkError){
+          openToast("error", error.networkError.result.errors[0].message);
+        }
       },
     });
 
@@ -159,7 +171,13 @@ const ManageUsers = () => {
         dispatch(getUsersSuccess(data.users.nodes));
       },
       onError: (error) => {
-        openToast("error", error.networkError.result.errors[0].message);
+        if(error.message){
+          openToast("error", error.message);
+          return;
+        }
+        if(error.networkError){
+          openToast("error", error.networkError.result.errors[0].message);
+        }
       },
     });
 
@@ -171,7 +189,13 @@ const ManageUsers = () => {
         openToast("success", data.deleteUser.message);
       },
       onError: (error) => {
-        openToast("error", error.networkError.result.errors[0].message);
+        if(error.message){
+          openToast("error", error.message);
+          return;
+        }
+        if(error.networkError){
+          openToast("error", error.networkError.result.errors[0].message);
+        }
       },
     }
   );
@@ -444,8 +468,8 @@ const ManageUsers = () => {
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between",
-                        padding: 15,
+                        justifyContent: "space-between", 
+                        padding: 15
                       }}
                     >
                       <div>
